@@ -373,7 +373,8 @@ class SewerLineTest(APITestCase):
         self.assertEqual(int(data['GUBN']), self.sewer19['gubn'])
         """ GU_NAME 일치 테스트"""
         self.assertEqual(data['GU_NAME'], self.sewer19['gubn_nam'])
-        """ 응답 코드 일치 테스트 """        self.assertEqual(response.status_code, 200)
+        """ 응답 코드 일치 테스트 """
+        self.assertEqual(response.status_code, 200)
     def test_necessary_success020(self):
         response = self.client.get('/api/rainfall-drain/?gubn=20', content_type='application/json')
         data = json.loads(response.content.decode('utf-8'))
